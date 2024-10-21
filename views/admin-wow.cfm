@@ -1,0 +1,3 @@
+<cfoutput>
+    admin wow
+</cfoutput>
