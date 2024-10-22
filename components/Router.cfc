@@ -7,7 +7,7 @@ component Router
 
     public void function get (
         required string route,
-        required string path_to_include
+        required any path_to_include
     ) {
 
         if (CGI.REQUEST_METHOD == "GET") {
@@ -19,7 +19,7 @@ component Router
 
     private void function evaluateRoute (
         required string route,
-        required string path_to_include
+        required any path_to_include
     ) {
 
         if (arguments.route == "*") {
@@ -27,9 +27,14 @@ component Router
             exit;
         }
 
-        if (helper.parseURL(CGI.PATH_INFO) == arguments.route) {
-            cfinclude(template=arguments.path_to_include, runonce=true);
+        if (isClosure(arguments.path_to_include)) {
+            path_to_include();
             exit;
+        } else {
+            if (helper.parseURL(CGI.PATH_INFO) == arguments.route) {
+                cfinclude(template=arguments.path_to_include, runonce=true);
+                exit;
+            }
         }
 
         return;

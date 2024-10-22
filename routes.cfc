@@ -8,10 +8,13 @@ component routes
 
         router.get("/", "../index.cfm");
         router.get("/admin", "../views/admin.cfm");
-        router.get("/user", "../views/user.cfm");
-        router.get("/admin/wow", "../views/admin-wow.cfm");
-        router.get("*", "../views/404.cfm");
 
+        router.get("/admin", function() {
+            writeOutput("hello world");
+        });
+
+        router.get("*", "../views/404.cfm");
     }
+
 
 }
