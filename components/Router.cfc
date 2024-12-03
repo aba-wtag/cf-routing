@@ -17,6 +17,18 @@ component Router
         return;
     }
 
+    public void function post (
+        required string route,
+        required any path_to_include
+    ) {
+
+        if (CGI.REQUEST_METHOD == "POST") {
+            evaluateRoute(route, path_to_include);
+        }
+
+        return;
+    }
+
     private void function evaluateRoute (
         required string route,
         required any path_to_include

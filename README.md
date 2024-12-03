@@ -33,6 +33,12 @@ Before proceeding you should have a `URL Rewrite` enabled `lucee` server. Please
 router.get("/admin", "../views/admin.cfm");
 ```
 
+### POST request
+
+```js
+router.post("/signup", "/controllers/signup/signup-controller.cfm");
+```
+
 ### GET request with a Closure
 
 ```js

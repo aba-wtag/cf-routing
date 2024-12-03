@@ -9,6 +9,10 @@ component routes
         router.get("/", "../index.cfm");
         router.get("/admin", "../views/admin.cfm");
 
+        
+        router.post("/signup", "/controllers/signup/signup-controller.cfm");
+
+
         router.get("/admin", function() {
             writeOutput("hello world");
         });
